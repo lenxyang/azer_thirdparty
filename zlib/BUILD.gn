@@ -1,0 +1,42 @@
+
+config("zlib-config") {
+  include_dirs = ["src"]
+  defines = ["ZLIB_DLL"]
+}
+
+component("zlib") {
+  sources = [
+    "src/adler32.c"
+    "src/compress.c"
+    "src/crc32.c"
+    "src/deflate.c"
+    "src/gzclose.c"
+    "src/gzlib.c"
+    "src/gzread.c"
+    "src/gzwrite.c"
+    "src/infback.c"
+    "src/inffast.c"
+    "src/inflate.c"
+    "src/inftrees.c"
+    "src/contrib/minizip/ioapi.c"
+    "src/contrib/minizip/iowin32.c"
+    "src/trees.c"
+    "src/uncompr.c"
+    "src/contrib/minizip/unzip.c"
+    "src/contrib/minizip/zip.c"
+    "src/zutil.c"
+    "src/deflate.h"
+    "src/infblock.h"
+    "src/infcodes.h"
+    "src/inffast.h"
+    "src/inftrees.h"
+    "src/infutil.h"
+    "src/zconf.h"
+    "src/zlib.h"
+    "src/zutil.h"
+    "src/contrib/vstudio/vc10/zlib.rc"
+  ]
+
+  direct_dependent_configs = [":zlib-config"]
+  # defines = ["ZLIB_INTERNAL"]
+}
